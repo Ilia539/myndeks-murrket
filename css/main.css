@@ -1,0 +1,328 @@
+@font-face
+{
+    font-family: "FontAwesomeSet";
+    src: url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+        url('../fonts/fontawesome-webfont.woff') format('woff'),
+        url('../fonts/fontawesome-webfont.ttf') format('ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    /* background: #edeff1; */
+    font-size: 16px;
+    color: #4f4f4f;
+    line-height: 1.4;
+  }
+  a {
+  /*   text-decoration: none; */
+    display: inline-block;
+  }
+  a:focus {
+    outline: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  /* ................................. */
+.display
+{
+    display: none;
+}
+.display-lines,
+.display-block {
+    font-family: "FontAwesomeSet", sans-serif;
+    font-size: 1.5rem;
+    color: rgb(196, 189, 189);
+    cursor: pointer;
+    margin: 10px 20px;
+    display: block;
+    text-align: right;
+}
+.display-lines:hover,
+.display-block:hover {
+    color: #999;
+}
+.display-block::before
+{
+    content: '\f009';
+}
+.display-lines::before
+{
+    content: '\f00b';
+}
+#lines:checked ~ label[for='lines'],
+#block:checked ~ label[for='block']
+{
+    color: rgb(51, 42, 42);
+}
+
+#block:checked ~ section .card-item .wrap .card-image {
+        width: 100%;
+        /* line-height: 300px; */
+        height: 300px;
+}
+#block:checked ~ section .card-item .wrap .card-image .card-img {
+    /* width: 100%; */
+    /* line-height: 300px; */
+    height: 100%;
+}
+#block:checked ~ section .card-item .wrap .card-image .img-width {
+    width: 100%;
+    /* line-height: 300px; */
+    height: 100%;
+}
+    
+#lines:checked ~ section .card-item .wrap .card-image {
+        width: 30%;
+        height: 100%;
+        display: table-cell;
+}
+#lines:checked ~ section .card-item .wrap .card-image .card-img {
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+}
+#lines:checked ~ section .card-item .card-info {
+        width: 45%;
+        vertical-align: top;
+        display: table-cell;
+        overflow: hidden;
+        padding-right: 20px;
+        text-align: start;
+}
+#lines:checked ~ section .card-item .card__text {
+        width: 30%;
+        vertical-align: top;
+        display: table-cell;
+        padding: 0 10px 0 10px;
+}
+.content {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+#lines:checked ~ .content {
+    display: table;
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 0;
+}
+.wrap {
+     height: 100%; 
+     width: 100%;
+      position: relative; 
+     overflow: hidden; 
+     max-width: 300px; 
+     display: inline-block; 
+     max-height: 300px;
+}
+.card-item {
+    /* margin: 10px auto; */
+  /*     padding: 10px; */
+  margin: 10px;
+      /* max-width: 300px; */
+    /* width: 100%; */
+      /* vertical-align: bottom; */
+      /* display: inline-block;  */
+    overflow: hidden;
+    /* background: white; */
+}
+#lines:checked ~ .content .card-item {
+    display: table-row;
+    padding: 10px;
+/*   margin: 10px; */
+}
+#block:checked ~ .content .card-item {
+    /*     margin: 20px; */
+    /*     padding: 10px; */
+        max-width: 300px;
+      width: 100%;
+        vertical-align: top;
+        display: inline-block;
+}
+.card-image {
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    /* overflow: hidden; */
+    /* max-width: 300px; */
+    display: inline-block;
+    /* max-height: 300px; */
+    /* line-height: 300px; */
+}
+.card-image:after {
+    content: '';
+    background: rgba(73, 102, 162, .5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0;
+    transform: scale(.3);
+    transition: .3s ease-in-out;
+}
+.card-item:hover .card-image:after {
+    opacity: 1;
+    transform: scale(1);
+}
+.img-width {
+    width: 100%;
+}
+ .card-img {
+   max-height:300px;
+   object-fit: cover;
+   overflow: hidden;
+   text-align: center;
+   vertical-align: bottom;
+}
+.loop-action {
+    position: absolute;
+ /*   left: 0; */
+ /*   top: 0; */
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: .3s ease-in-out;
+   display: block;
+}
+.card-item:hover .loop-action {
+    opacity: 1;
+}
+.loop-action a {
+    text-decoration: none;
+    display: block;
+    border: 1px solid white;
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding: .5em 1em;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    min-width: 160px;
+    margin: 5px auto;
+    transition: .3s ease-in-out;
+}
+.loop-action a:after {
+    content: '';
+    position: absolute;
+    left: -220%;
+    top: -500%;
+    width: 140%;
+    height: 1000%;
+    transform: rotate(45deg);
+    background: white;
+    z-index: -1;
+    transition: .3s ease-in-out;
+}
+.loop-action a:hover {
+    color: black;
+}
+.loop-action a:hover:after {
+    left: 0%;
+}
+.card-info {
+      padding: 5px;
+      text-align: start;
+}
+.info__title {
+    white-space: nowrap;
+    font-size: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0 5px 5px 0;
+    text-align: start;
+}
+.text-title {
+    margin-bottom: 10px;
+    font-size: 23px;
+}
+.card__category {
+    padding: 5px 0 5px 0;
+}
+/* ...............................RATING................... */
+.rating {
+    margin: 0 0 1em 0;
+    padding: 0;
+    border: none;
+}
+.card__rating {
+    display: inline-block;
+}
+.card__rating label {
+    float: right;
+    font-family: "FontAwesomeSet";
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* color: rgb(223, 53, 53); */
+    color: #fff;
+}
+.card__rating input {
+    display: none;
+}
+input:focus {
+    outline: none;
+}
+.card__rating .off-star::before
+{
+    content: '\f005';
+    text-shadow: 0 0 2px #525151;
+}
+
+.card__rating .on-star::before
+{
+    content: '\f089';
+    position: absolute;
+    z-index: 1;
+}
+.card__rating input:checked ~ label
+{
+    color: #fc0;
+}
+.card__rating label:hover,
+.card__rating label:hover ~ label
+{
+    color: #f7d960 !important;
+}
+.card__rating label:active::before,
+.card__rating label:active ~ label::before
+{
+    color: #ff8400;
+}
+
+/* ..................PRICE.............. */
+.price {
+    color: red;
+    font-size: 2.5rem;
+    margin-right: 10px;
+}
+.price-old {
+    text-decoration: line-through;
+    font-size: 1.4rem;
+}
+.card__text {
+    text-align: start;
+    padding: 0 0 15px 0;
+}
+@media (max-width: 1199px) {
+    #lines:checked ~ section .card-item .card-info {
+        width: 35%;
+    }
+}
